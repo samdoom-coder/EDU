@@ -1,4 +1,7 @@
-name: Build ToneZone APK
+- name: Make gradlew executable
+  run: chmod +x android/gradlew
+  
+  name: Build ToneZone APK
 
 on:
   push:
