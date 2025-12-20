@@ -1,4 +1,4 @@
-name: Build ToneZone APK
+name: Build SMSApp APK
 
 on:
   push:
@@ -38,5 +38,5 @@ jobs:
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
-          name: ToneZone-APK
+          name: SMSApp-APK
           path: android/app/build/outputs/apk/release/app-release.apk

@@ -1,4 +1,4 @@
-package com.tonezoneapp
+package com.SMSApp
 
 import android.app.Application
 import com.facebook.react.PackageList

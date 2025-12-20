@@ -1,15 +1,35 @@
-import React from 'react';
-import { SafeAreaView } from 'react-native';
+import React, { useEffect } from 'react';
+import {
+  SafeAreaView,
+  PermissionsAndroid,
+  Platform,
+} from 'react-native';
 import { WebView } from 'react-native-webview';
 
 const App = () => {
+
+  useEffect(() => {
+    if (Platform.OS === 'android') {
+      PermissionsAndroid.request(
+        PermissionsAndroid.PERMISSIONS.CAMERA
+      );
+    }
+  }, []);
+
   return (
     <SafeAreaView style={{ flex: 1 }}>
       <WebView
-        source={{ uri: 'https://tonezone.vercel.app' }}
+        source={{ uri: 'https://school-os-copy.vercel.app/' }}
+        style={{ flex: 1 }}
         javaScriptEnabled
         domStorageEnabled
         startInLoadingState
+        mediaPlaybackRequiresUserAction={false}
+        allowsInlineMediaPlayback
+        originWhitelist={['*']}
+        onPermissionRequest={(event: any) => {
+          event.nativeEvent.grant(event.nativeEvent.resources);
+        }}
       />
     </SafeAreaView>
   );
