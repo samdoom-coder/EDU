@@ -1,4 +1,4 @@
-package com.SMSApp
+package com.SchoolOS
 
 import android.app.Application
 import com.facebook.react.PackageList
