@@ -3,6 +3,7 @@ import {
   SafeAreaView,
   PermissionsAndroid,
   Platform,
+  Linking
 } from 'react-native';
 import { WebView } from 'react-native-webview';
 
@@ -16,10 +17,17 @@ const App = () => {
     }
   }, []);
 
+  const handleDownload = (event: any) => {
+    const { url } = event.nativeEvent;
+
+    // open download link in external browser
+    Linking.openURL(url);
+  };
+
   return (
     <SafeAreaView style={{ flex: 1 }}>
       <WebView
-        source={{ uri: 'https://schoolos.seedyai.com/' }}
+        source={{ uri: 'https://seedyaios.vercel.app/' }}
         style={{ flex: 1 }}
         javaScriptEnabled
         domStorageEnabled
@@ -30,6 +38,7 @@ const App = () => {
         onPermissionRequest={(event: any) => {
           event.nativeEvent.grant(event.nativeEvent.resources);
         }}
+        onFileDownload={handleDownload}
       />
     </SafeAreaView>
   );
