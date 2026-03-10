@@ -36,7 +36,7 @@ jobs:
           ./gradlew assembleRelease
 
       - name: Upload APK
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: SchoolOS-APK
           path: android/app/build/outputs/apk/release/app-release.apk
